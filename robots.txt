@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://omcodicewilly.github.io/mainportal-aiyouxi-com-cn/sitemap.xml

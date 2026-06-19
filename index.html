@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>爱游戏 · 游戏内容专题</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background: #f5f0ea;
+            font-family: 'Georgia', 'Noto Serif SC', serif;
+            color: #2e2b27;
+            line-height: 1.7;
+            padding: 2rem 1.5rem;
+        }
+
+        .page {
+            max-width: 960px;
+            margin: 0 auto;
+            background: #fcfaf7;
+            border-radius: 28px;
+            box-shadow: 0 12px 40px rgba(0,0,0,0.04);
+            overflow: hidden;
+            padding: 2.8rem 2.5rem 3.2rem;
+        }
+
+        /* Hero 区 — 杂志横幅 */
+        .hero {
+            text-align: center;
+            padding: 2.5rem 0 1.8rem;
+            border-bottom: 1px solid #e5ddd4;
+            margin-bottom: 2.2rem;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 400;
+            letter-spacing: 2px;
+            color: #1f1b17;
+        }
+
+        .hero h1 span {
+            background: #dacfc1;
+            padding: 0 0.6rem;
+            font-style: italic;
+        }
+
+        .hero .subhead {
+            margin-top: 0.9rem;
+            font-size: 1rem;
+            color: #6a6259;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-top: 1px solid #ddd6cb;
+            display: inline-block;
+            padding-top: 0.7rem;
+        }
+
+        /* 文章卡片/段落排版 */
+        .intro-block {
+            display: flex;
+            flex-direction: column;
+            gap: 1.6rem;
+        }
+
+        .section-card {
+            background: #f8f3ec;
+            border-left: 5px solid #b8aa97;
+            padding: 1.6rem 2rem;
+            border-radius: 0 12px 12px 0;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+        }
+
+        .section-card h2 {
+            font-size: 1.4rem;
+            font-weight: 400;
+            color: #3b352f;
+            margin-bottom: 0.6rem;
+            border-bottom: 1px dashed #d6cdc0;
+            padding-bottom: 0.3rem;
+        }
+
+        .section-card p {
+            margin: 0.6rem 0;
+            font-size: 1rem;
+            color: #3d3731;
+        }
+
+        .section-card p strong {
+            font-weight: 600;
+            color: #1f1b17;
+        }
+
+        /* 引用块 — 突出核心信息 */
+        .inset-quote {
+            background: #e8e0d6;
+            padding: 1.2rem 1.8rem;
+            margin: 1.4rem 0 0.6rem;
+            border-radius: 16px;
+            font-size: 0.95rem;
+            color: #2c2722;
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.04);
+            border-left: 4px solid #9a8b7a;
+        }
+
+        .inset-quote a {
+            color: #4f4237;
+            text-decoration: underline wavy #b8aa97 1.5px;
+            text-underline-offset: 4px;
+            font-weight: 500;
+        }
+
+        .inset-quote a:hover {
+            background: #d6cbbc;
+            text-decoration: none;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.2rem;
+            margin-top: 1rem;
+        }
+
+        .feature-item {
+            background: #f0ebe3;
+            padding: 0.9rem 1.2rem;
+            border-radius: 18px;
+            border: 1px solid #e4dbd0;
+        }
+
+        .feature-item .num {
+            font-size: 0.9rem;
+            color: #877b6e;
+            letter-spacing: 1px;
+        }
+
+        .feature-item p {
+            margin: 0.2rem 0 0;
+        }
+
+        /* 页尾提示区 — 杂志脚注风格 */
+        .footer-note {
+            margin-top: 2.8rem;
+            padding-top: 1.8rem;
+            border-top: 2px double #d6cdc0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-note .tag {
+            font-size: 0.85rem;
+            color: #6a6259;
+            letter-spacing: 0.5px;
+        }
+
+        .footer-note .visit-hint {
+            background: #e6dccf;
+            padding: 0.5rem 1.4rem;
+            border-radius: 40px;
+            font-size: 0.95rem;
+        }
+
+        .footer-note .visit-hint a {
+            color: #2b251f;
+            font-weight: 600;
+            text-decoration: none;
+            border-bottom: 1px solid #8f7f6c;
+        }
+
+        .footer-note .visit-hint a:hover {
+            background: #d0c3b2;
+        }
+
+        .faq-mini {
+            margin: 1.6rem 0 0.6rem;
+            background: #f4eee6;
+            padding: 1.2rem 1.6rem;
+            border-radius: 20px;
+        }
+
+        .faq-mini details {
+            margin: 0.5rem 0;
+        }
+
+        .faq-mini summary {
+            font-weight: 500;
+            cursor: pointer;
+            color: #3b352f;
+            list-style: '▸ ';
+        }
+
+        .faq-mini details[open] summary {
+            list-style: '▾ ';
+        }
+
+        .faq-mini details p {
+            margin: 0.4rem 0 0 1.2rem;
+            color: #4b443c;
+            font-size: 0.95rem;
+        }
+
+        /* 响应式细节 */
+        @media (max-width: 680px) {
+            body { padding: 1rem 0.8rem; }
+            .page { padding: 1.6rem 1.2rem; }
+            .hero h1 { font-size: 2rem; }
+            .section-card { padding: 1.2rem 1.2rem; }
+            .feature-grid { grid-template-columns: 1fr; }
+            .footer-note { flex-direction: column; gap: 0.8rem; align-items: flex-start; }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <!-- 杂志横幅 hero -->
+        <div class="hero">
+            <h1>〈 <span>爱游戏</span> 〉</h1>
+            <div class="subhead">内容专题 · 叙事与体验</div>
+        </div>
+
+        <!-- 三段自然介绍 + 背景说明 -->
+        <div class="intro-block">
+            <div class="section-card">
+                <h2>一、主题的纵深</h2>
+                <p>游戏早已不止于消遣，它成为交互叙事、策略思考和审美构建的综合载体。<strong>爱游戏</strong>这三个字背后，是对设计逻辑与人文表达的关注。从像素风格到开放世界，从桌面谜题到大型多人在线，每一个机制都在回应某种内在需求：挑战、沉浸、联结或创造。</p>
+                <div class="inset-quote">
+                    “游戏是主动解决的乐趣。” 在 <a href="https://mainportal-aiyouxi.com.cn">爱游戏</a> 的内容框架中，我们强调玩法背后的结构，以及它们如何影响玩家的决策与情感。
+                </div>
+            </div>
+
+            <div class="section-card">
+                <h2>二、场景与可能性</h2>
+                <p>单人剧情中的角色弧光、合作模式里的默契配合、竞技场上的即时判断——每一类场景都带来不同的认知负荷与回报。<strong>爱游戏</strong>所关注的，是这些场景如何被设计、被叙述、被社区重塑。例如一款解谜游戏如何利用环境叙事，或者一款模拟经营怎样在资源循环中制造紧张。</p>
+                <div class="feature-grid">
+                    <div class="feature-item">
+                        <span class="num">01 叙事</span>
+                        <p>环境线索、对话分支、碎片化文本</p>
+                    </div>
+                    <div class="feature-item">
+                        <span class="num">02 机制</span>
+                        <p>规则耦合、反馈循环、难度曲线</p>
+                    </div>
+                    <div class="feature-item">
+                        <span class="num">03 社群</span>
+                        <p>共创内容、模组生态、文化再生产</p>
+                    </div>
+                    <div class="feature-item">
+                        <span class="num">04 美学</span>
+                        <p>视觉风格、音景设计、界面哲学</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-card">
+                <h2>三、信息与洞察</h2>
+                <p>在碎片化资讯时代，保持对游戏本质的观察尤显珍贵。我们梳理过载信息，提炼出有质量的视角：从经典系列的演变，到独立作品的先锋尝试。无论你偏好哪种类型，都可以在 <strong>爱游戏</strong> 的内容版图中找到对照与启发。</p>
+                <!-- 嵌入 FAQ 摘要风格，增加变化 -->
+                <div class="faq-mini">
+                    <details>
+                        <summary>为什么强调“设计逻辑”？</summary>
+                        <p>因为每一款持久吸引人的游戏，都有一套自洽的规则系统。理解这些逻辑，能更精准地评价体验，也能反哺自己的创作或鉴赏。</p>
+                    </details>
+                    <details>
+                        <summary>内容选题偏向？</summary>
+                        <p>兼顾商业作品与独立创作，侧重机制创新、叙事实验和文化映射，不追逐短期热点。</p>
+                    </details>
+                </div>
+            </div>
+        </div>
+
+        <!-- 页尾访问提示 — 杂志脚注风格 -->
+        <div class="footer-note">
+            <span class="tag">专题 · 持续更新</span>
+            <span class="visit-hint">深入主题，请至 <a href="https://mainportal-aiyouxi.com.cn">爱游戏</a></span>
+        </div>
+    </div>
+</body>
+</html>
