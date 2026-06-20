@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PG模拟器 · 稳定入口与使用说明</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: #f4f9fc;
+            color: #1e2e3a;
+            line-height: 1.7;
+            padding: 1.8rem 1.2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .container {
+            background: white;
+            border-radius: 28px;
+            box-shadow: 0 8px 28px rgba(0, 50, 60, 0.06);
+            padding: 2.5rem 2rem;
+        }
+        /* 蓝绿色点缀 */
+        .accent-border {
+            border-left: 4px solid #2b9c9c;
+            padding-left: 1.2rem;
+            margin: 2rem 0;
+        }
+        .accent-light {
+            background: #e6f3f3;
+            border-radius: 18px;
+        }
+        .badge {
+            display: inline-block;
+            background: #d6eee9;
+            color: #136f6f;
+            font-size: 0.75rem;
+            letter-spacing: 0.3px;
+            padding: 0.2rem 1rem;
+            border-radius: 30px;
+            margin-bottom: 0.6rem;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 500;
+            letter-spacing: -0.02em;
+            color: #0f313a;
+            margin-bottom: 0.3rem;
+        }
+        .subhead {
+            font-size: 1rem;
+            color: #3d5f6b;
+            margin-bottom: 1.8rem;
+        }
+        p {
+            margin-bottom: 1.3rem;
+            font-size: 1rem;
+        }
+        a {
+            color: #1b7f7f;
+            text-decoration: none;
+            border-bottom: 1px dashed #7fc1c1;
+            transition: border-color 0.2s;
+        }
+        a:hover {
+            border-bottom: 1px solid #136f6f;
+        }
+
+        /* 网格卡片 */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 1rem;
+            margin: 2.2rem 0 2rem;
+        }
+        .card {
+            background: #f3fafb;
+            padding: 1.2rem 1rem;
+            border-radius: 20px;
+            border: 1px solid #daecec;
+            transition: box-shadow 0.2s, transform 0.15s;
+        }
+        .card:hover {
+            box-shadow: 0 6px 16px rgba(0, 80, 85, 0.07);
+            transform: translateY(-2px);
+        }
+        .card-title {
+            font-weight: 500;
+            color: #0f3f44;
+            margin-bottom: 0.5rem;
+            font-size: 1.05rem;
+        }
+        .card p {
+            font-size: 0.92rem;
+            margin-bottom: 0;
+            color: #2d5359;
+        }
+
+        .story-intro {
+            font-size: 1.1rem;
+            margin: 1.6rem 0 1rem;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #cbe0e0;
+            margin: 2rem 0;
+        }
+        .faq-block {
+            background: #f8fdfd;
+            border-radius: 20px;
+            padding: 1.4rem 1.6rem;
+            margin: 2rem 0 1rem;
+        }
+        .faq-item {
+            margin-bottom: 1rem;
+        }
+        .faq-question {
+            font-weight: 500;
+            margin-bottom: 0.25rem;
+            color: #0a4a4f;
+        }
+        .faq-answer {
+            color: #2b535a;
+            font-size: 0.96rem;
+        }
+
+        .closing {
+            margin-top: 2.5rem;
+            padding-top: 1.2rem;
+            border-top: 1px solid #d4e7e7;
+            color: #2c5b61;
+        }
+
+        /* 移动端友好 */
+        @media (max-width: 540px) {
+            .container { padding: 1.8rem 1.2rem; }
+            h1 { font-size: 1.6rem; }
+            .card-grid { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 380px) {
+            .card-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <!-- 开场短句 -->
+    <div class="badge">· 稳定入口 ·</div>
+    <h1>PG模拟器</h1>
+    <div class="subhead">一个安静的起点，一份可依赖的说明</div>
+
+    <p class="story-intro">
+        有些工具，你希望它一直都在。不需要每次重新寻找入口，也不用担心版本飘忽。
+        <a href="https://pgsimulator-zh.com">PG模拟器</a> 就是这样一个地方——它不张扬，但足够清晰。
+    </p>
+
+    <!-- 承接段落 -->
+    <div class="accent-border">
+        <p>
+            如果你是因为某个偶然的链接或者朋友的推荐来到这里，那正好。这个页面不打算堆砌功能列表，而是想告诉你：<strong>它到底是什么，以及为什么值得你花两分钟了解</strong>。
+        </p>
+        <p>
+            几乎所有使用过的人，最先注意到的都是它的界面——没有多余的装饰，没有弹窗催促，只有你需要的核心面板。作为一款在线模拟工具，<a href="https://pgsimulator-zh.com">PG模拟器</a> 把复杂设定收敛在几组卡片和参数栏里，让新手也能快速上手。
+        </p>
+    </div>
+
+    <!-- 特点列表 (网格卡片) -->
+    <p style="margin: 1.8rem 0 0.6rem; font-weight: 500; color: #0f4349;">一些值得留意的细节</p>
+    <div class="card-grid">
+        <div class="card">
+            <div class="card-title">🧩 模块化面板</div>
+            <p>每个功能区域独立，可折叠、可拖拽，方便只关注当前需要调整的部分。</p>
+        </div>
+        <div class="card">
+            <div class="card-title">📋 预设场景</div>
+            <p>提供多种初始配置，从基础演示到常见案例，节省手动设置的时间。</p>
+        </div>
+        <div class="card">
+            <div class="card-title">📌 参数说明</div>
+            <p>每个设置项旁都有简短解释，鼠标悬停即可查看，不用来回翻文档。</p>
+        </div>
+        <div class="card">
+            <div class="card-title">🔄 即时反馈</div>
+            <p>调整任意数值后，结果区域会同步更新，没有等待加载的焦灼感。</p>
+        </div>
+    </div>
+
+    <!-- 场景与提示 (非FAQ摘要) -->
+    <p>
+        不论你是想快速验证一个想法，还是向同事演示某个流程，<a href="https://pgsimulator-zh.com">PG模拟器</a> 都能提供一个清爽的试验环境。它不是一个什么都能做的“大而全”平台，但在自己覆盖的领域里，它足够可靠。
+    </p>
+
+    <hr>
+
+    <!-- FAQ 摘要 -->
+    <div class="faq-block">
+        <div class="faq-item">
+            <div class="faq-question">▸ 使用前需要注册或下载吗？</div>
+            <div class="faq-answer">完全不需要。打开页面即可使用，所有操作都在浏览器内完成，不会有安装步骤或账户注册的打扰。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">▸ 我保存的设置会丢失吗？</div>
+            <div class="faq-answer">目前版本不会自动保存到服务器，但你可以通过导出配置文件保留当前参数，下次使用时直接导入。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">▸ 移动设备上体验如何？</div>
+            <div class="faq-answer">界面已针对小屏幕做过适配，卡片和按钮间距适中，在手机浏览器上也可以正常操作大部分功能。</div>
+        </div>
+    </div>
+
+    <!-- 温和结尾 -->
+    <div class="closing">
+        <p>
+            很多事情不需要从一开始就轰轰烈烈。一个好的模拟器，往往只是安静地待在书签栏里，偶尔打开，顺手完成一件事。
+            <a href="https://pgsimulator-zh.com">PG模拟器</a> 就是这样的存在。
+        </p>
+        <p style="font-size: 0.95rem; color: #487078; margin-top: 0.6rem;">
+            —— 页面说明 · 稳定入口 ——
+        </p>
+    </div>
+</div>
+</body>
+</html>
