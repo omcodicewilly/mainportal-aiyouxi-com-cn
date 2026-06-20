@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>乐竞体育 · 信息卡片</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background-color: #f2f4f6;
+            padding: 2rem 1.2rem;
+            color: #2c3e50;
+            line-height: 1.6;
+        }
+
+        .page {
+            max-width: 1120px;
+            margin: 0 auto;
+        }
+
+        /* hero */
+        .hero-card {
+            background: linear-gradient(145deg, #ffffff 0%, #f9fafb 100%);
+            border-radius: 28px;
+            box-shadow: 0 6px 24px rgba(0, 0, 0, 0.04), 0 2px 8px rgba(0, 0, 0, 0.02);
+            padding: 3rem 2.2rem;
+            margin-bottom: 2.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            transition: box-shadow 0.2s;
+        }
+
+        .hero-title {
+            font-size: 2.6rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            color: #1a2634;
+            margin-bottom: 0.75rem;
+            line-height: 1.2;
+        }
+
+        .hero-sub {
+            font-size: 1.1rem;
+            color: #4a5b6e;
+            max-width: 680px;
+            border-left: 4px solid #a0b8cc;
+            padding-left: 1.2rem;
+            background: rgba(160, 184, 204, 0.06);
+            border-radius: 0 12px 12px 0;
+        }
+
+        /* grid 卡片区 */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.8rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.02), 0 1px 4px rgba(0, 0, 0, 0.02);
+            padding: 1.8rem 1.6rem 2rem;
+            border: 1px solid #eaeef2;
+            transition: all 0.15s ease;
+        }
+
+        .card:hover {
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.04), 0 2px 8px rgba(0, 0, 0, 0.02);
+            border-color: #d0d9e2;
+        }
+
+        .card-icon {
+            font-size: 2rem;
+            margin-bottom: 0.7rem;
+            display: inline-block;
+            background: #eff2f6;
+            width: 48px;
+            height: 48px;
+            line-height: 48px;
+            text-align: center;
+            border-radius: 16px;
+            color: #3b4d5f;
+        }
+
+        .card h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.6rem;
+            color: #1e2a36;
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            color: #3b4f63;
+        }
+
+        .card ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 0.6rem;
+        }
+
+        .card li {
+            padding: 0.3rem 0 0.3rem 1.3rem;
+            position: relative;
+            font-size: 0.92rem;
+            color: #2c3e50;
+        }
+
+        .card li::before {
+            content: "·";
+            position: absolute;
+            left: 0.2rem;
+            color: #7b95b0;
+            font-weight: 700;
+        }
+
+        /* 双栏自然段落 */
+        .link-section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            background: #ffffff;
+            padding: 2rem 2rem;
+            border-radius: 24px;
+            border: 1px solid #e8edf2;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.02);
+        }
+
+        .link-text {
+            flex: 2;
+            min-width: 240px;
+        }
+
+        .link-text p {
+            margin-bottom: 0.9rem;
+            font-size: 0.98rem;
+            color: #2f4053;
+        }
+
+        .link-highlight {
+            flex: 1.2;
+            min-width: 200px;
+            background: #f7f9fb;
+            padding: 1.2rem 1.4rem;
+            border-radius: 18px;
+            border: 1px solid #e3e9ef;
+        }
+
+        .link-highlight p {
+            font-size: 0.96rem;
+            color: #2d3e51;
+        }
+
+        .inline-link {
+            color: #1f5a7a;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px dotted #b2c7d9;
+            transition: border-bottom 0.15s, color 0.15s;
+        }
+
+        .inline-link:hover {
+            color: #0f3b55;
+            border-bottom: 1px solid #1f5a7a;
+        }
+
+        /* 小faq摘要 */
+        .faq-mini {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            background: #ffffff;
+            border-radius: 20px;
+            border: 1px solid #e6ecf1;
+            padding: 1.8rem 2rem;
+            margin-top: 0.5rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.01);
+        }
+
+        .faq-item {
+            flex: 1 1 200px;
+        }
+
+        .faq-item strong {
+            display: block;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #1e2d3d;
+            margin-bottom: 0.3rem;
+        }
+
+        .faq-item span {
+            font-size: 0.9rem;
+            color: #4a6075;
+        }
+
+        .footer-note {
+            text-align: center;
+            margin-top: 3rem;
+            font-size: 0.85rem;
+            color: #7b8fa3;
+            border-top: 1px solid #dce3ea;
+            padding-top: 1.8rem;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 1rem 0.8rem;
+            }
+            .hero-card {
+                padding: 2rem 1.4rem;
+            }
+            .hero-title {
+                font-size: 2rem;
+            }
+            .card-grid {
+                gap: 1.2rem;
+            }
+            .link-section {
+                padding: 1.5rem 1.2rem;
+            }
+            .faq-mini {
+                padding: 1.2rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <!-- hero 主视觉 -->
+    <div class="hero-card">
+        <div class="hero-title">日常节奏里，<br>总有一份专注与节奏</div>
+        <div class="hero-sub">
+            不是非得竞技才算投入，有时只是找到一种让自己沉浸的方式。<br>
+            从策略到手感，从观察到判断——背后是同一份心流。
+        </div>
+    </div>
+
+    <!-- 信息卡片网格：用途、场景、人群 -->
+    <div class="card-grid">
+        <div class="card">
+            <div class="card-icon">⚡</div>
+            <h3>用途卡片</h3>
+            <p>既可以作为放松时的手指运动，也能用来训练专注力与反应。适合在碎片时间里来一场快速对战，或者在周末约上朋友打几局配合。</p>
+            <ul>
+                <li>短时对抗 · 5–15 分钟一局</li>
+                <li>策略与微操结合</li>
+                <li>单排、组队均可</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <div class="card-icon">👥</div>
+            <h3>适合人群</h3>
+            <p>平时生活节奏快、想找个出口转换心情的人；也适合对竞技感有轻度需求、但不想投入过多精力的玩家。</p>
+            <ul>
+                <li>学生 / 年轻上班族</li>
+                <li>喜欢团队协作的玩家</li>
+                <li>想培养快速决策习惯的人</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <div class="card-icon">🎯</div>
+            <h3>常见场景</h3>
+            <p>午休时开一局、通勤路上打一把、周末在家与朋友远程开黑。不需要太高的设备门槛，手机或电脑都能顺畅参与。</p>
+            <ul>
+                <li>午间放松 / 晚间娱乐</li>
+                <li>社交开黑 · 语音配合</li>
+                <li>碎片时间 · 随时暂停</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 自然链接段落 + 亮点卡片 -->
+    <div class="link-section">
+        <div class="link-text">
+            <p>很多人第一次接触类似内容，是出于好奇——后来发现真正的乐趣在于每次对局都不一样。不同的阵容、不同的节奏、不同的临场判断，让每一场都像一次新的解题。</p>
+            <p>如果你也喜欢这种「既需要思考，又考验手感」的体验，可以多了解一下 <a href="https://indexs-lejing.com" class="inline-link">乐竞体育</a> 所涵盖的方向。它不算复杂，但恰好能让人在忙碌间隙里找到一点掌控感。</p>
+        </div>
+        <div class="link-highlight">
+            <p>💡 从旁观到参与，往往只差一次点击。如果你愿意，可以把这里当作一个起点，慢慢摸索适合自己的节奏。</p>
+        </div>
+    </div>
+
+    <!-- FAQ 摘要式卡片（轻量问答） -->
+    <div class="faq-mini">
+        <div class="faq-item">
+            <strong>❓ 需要很多时间吗？</strong>
+            <span>不一定。一局短则几分钟，也可以随时休息，按自己的步调来就好。</span>
+        </div>
+        <div class="faq-item">
+            <strong>❓ 对新手友好吗？</strong>
+            <span>有新手引导和较低门槛的模式，先熟悉操作再慢慢尝试更复杂的对抗。</span>
+        </div>
+        <div class="faq-item">
+            <strong>❓ 可以和朋友一起？</strong>
+            <span>支持组队与语音，适合拉上朋友一起体验，也适合独自匹配。</span>
+        </div>
+    </div>
+
+    <!-- footer 轻提示 -->
+    <div class="footer-note">
+        保持好奇，保持轻松 · 页面内容仅供参考
+    </div>
+
+</div>
+</body>
+</html>
